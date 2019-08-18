@@ -15,3 +15,12 @@ def get_host_ip():
         s.close()
 
     return host_ip
+
+def checkIP(addr):
+    return addr == "127.0.0.1"
+    # if 'HTTP_X_FORWARDED_FOR' in request.META :
+    #     ip =  request.META['HTTP_X_FORWARDED_FOR']
+    # else:
+    #     ip = request.META['REMOTE_ADDR']
+    # # print("IP: ", ip)
+    # return ip == "127.0.0.1"

@@ -1,0 +1,44 @@
+<!doctype html>
+<title>PolarisHub (flask v0.1)</title>
+<link rel="stylesheet" href="/static/css/bootstrap.css">
+
+<div class="container-fluid">
+    <div class="my-5">
+    <h1>PolarisHub (flask v0.1)</h1>
+    {% if is_admin %}
+        <button button type="button" class="btn btn-outline-primary my-1">
+            <a href="/settings"> Settings </a>
+        </button>
+        <br>
+        <button button type="button" class="btn btn-outline-primary my-1" onclick="opendir()">Open Directory</button>
+        <script>
+            function opendir() {
+                fetch("/opendir?dir={{cwd}}").then((res)=>{
+                    return res.status;
+                }).then((status)=>{
+                    if (status==200) {
+                        window.alert("Successfully open dir.");
+                    }
+                    else {
+                        window.alert("Open dir fails.");
+                    }
+                })
+            }
+        </script>
+        <br>
+    {% endif %}
+
+    </div>
+
+    <div class="">
+
+    {% if dirs %}
+    
+    <ul class="list-group">
+        {% for dir in dirs %}
+            <a href="{{ dir }}"><li class="list-group-item">{{dir}}</li></a>
+        {% endfor %}
+    </ul>
+    {% endif %}  
+    </div>
+</div>

@@ -1,4 +1,5 @@
 import os, sys, json
+from flask import abort
 settings = {}
 
 def load_settings():
@@ -11,3 +12,10 @@ def get_settings():
     if settings == {} or settings is None:
         settings = load_settings()
     return settings
+
+        
+def get_dir(path):
+    if os.path.isdir(path):
+        return os.listdir(path)
+    else:
+        abort(404)
