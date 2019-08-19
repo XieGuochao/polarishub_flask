@@ -1,9 +1,25 @@
 <!doctype html>
-<title>PolarisHub (flask v0.1)</title>
+<title>{{user_settings.username}}'s PolarisHub (flask v0.1)</title>
 <link rel="stylesheet" href="/static/css/bootstrap.css">
 
 <div class="container-fluid">
-    <div class="my-5">
+    <div class="my-5 container">
         <h1>Settings</h1>   
+        <a href="/"> 
+            <button button type="button" class="btn btn-outline-primary my-1">
+                Back Home 
+            </button>
+        </a>
+
+    </div>
+        
+    <div class="container">
+        <form action="/update_settings" method="POST">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" name="username" placeholder="{{user_settings.username}}" minlength="1" required>
+            </div>
+            <button type="submit" class="btn btn-primary mb-2">Update</button>
+        </form>
     </div>
 </div>

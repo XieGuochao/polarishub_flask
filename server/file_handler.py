@@ -13,7 +13,14 @@ def get_settings():
         settings = load_settings()
     return settings
 
-        
+def save_settings():
+    try:
+        with open(os.path.join(os.getcwd(), 'server', 'settings.json'), 'w') as f:
+            json.dump(settings, f)
+        return True
+    except:
+        return False
+
 def get_dir(path):
     if os.path.isdir(path):
         path_list = os.listdir(path)
@@ -24,3 +31,29 @@ def get_dir(path):
         return path_list
     else:
         abort(404)
+
+keys = {
+    'username': lambda name:len(name)>0
+    } 
+def update_settings(new_settings):
+    global settings
+    print(new_settings)
+    # for items in new_settings:
+        # print (items)
+    for key, value in new_settings.items():
+        # print(items)
+        # key, value = items
+        print ((key, value))
+        if key in keys.keys() and keys[key](value):
+            print ("key gets:", key)
+            print (key, value)
+            if value:
+                settings[key] = value
+        else:
+            settings = load_settings()
+            return False
+
+    if save_settings():
+        return True
+    else:
+        return False

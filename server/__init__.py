@@ -55,7 +55,7 @@ def create_app(test_config=None):
         if os.path.isfile(local_path):
             return send_file(local_path)
         elif os.path.isdir(local_path):
-            return render_template('index.html', cwd = local_path, dirs = file_handler.get_dir(local_path), is_admin = is_admin)
+            return render_template('index.html', cwd = local_path, dirs = file_handler.get_dir(local_path), is_admin = is_admin, user_settings = file_handler.get_settings())
         else:
             abort(404)
 
@@ -72,7 +72,7 @@ def create_app(test_config=None):
     @app.route('/settings')
     def open_setting():
         if network.checkIP(request.remote_addr):
-            return render_template("settings.html")
+            return render_template("settings.html", user_settings = file_handler.get_settings())
         else:
             return abort(404)
 
@@ -88,10 +88,20 @@ def create_app(test_config=None):
         file_name = str(hash(file_path)) + ".png"
         print(file_name)
         network_path = "http://{}:{}".format(network.get_host_ip(), request.host[request.host.find(":")+1:]) + file_path
-        return render_template("qrcode.html", filepath=myqrcode.generateCode(network_path, file_name)[1], filename=file_path)
+        return render_template("qrcode.html", filepath=myqrcode.generateCode(network_path, file_name)[1], filename=file_path, user_settings = file_handler.get_settings())
 
     @app.route("/about")
     def about():
         return render_template("about.html")
-        
+    
+    @app.route('/update_settings', methods = ["POST"])
+    def update_settings():
+        if network.checkIP(request.remote_addr):
+            if file_handler.update_settings(request.form):
+                return redirect("/")
+            else:
+                return abort(500)
+        else:
+            return abort(404)
+
     return app
