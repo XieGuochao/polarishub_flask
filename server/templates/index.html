@@ -1,16 +1,30 @@
 <!doctype html>
 <title>PolarisHub (flask v0.1)</title>
 <link rel="stylesheet" href="/static/css/bootstrap.css">
+<link rel="stylesheet" href="/static/css/all.css">
 
-<div class="container-fluid">
+<div class="container">
     <div class="my-5">
-    <h1>PolarisHub (flask v0.1)</h1>
+    <div class="d-flex justify-content-between">
+        <h1>PolarisHub (Flask v0.1)</h1>
+        <a href="/about"> 
+            <button button type="button" class="btn btn-outline-primary my-1 float-right">
+                About
+            </button>
+        </a>
+    </div>
+    <a href="/qr?filepath=/files" class="float-right">
+        <button button type="button" class="btn btn-outline-primary my-1 float-right">
+            <i class="fas fa-share-alt"></i> 
+        </button>
+    </a>
+
     {% if is_admin %}
         <button button type="button" class="btn btn-outline-primary my-1">
             <a href="/settings"> Settings </a>
         </button>
-        <br>
         <button button type="button" class="btn btn-outline-primary my-1" onclick="opendir()">Open Directory</button>
+        <br>
         <script>
             function opendir() {
                 fetch("/opendir?dir={{cwd}}").then((res)=>{
@@ -32,13 +46,26 @@
 
     <div class="">
 
-    {% if dirs %}
     
     <ul class="list-group">
+        <li class="list-group-item">
+            <a href="../" class="w">
+                ../
+            </a>
+        </li>
         {% for dir in dirs %}
-            <a href="{{ dir }}"><li class="list-group-item">{{dir}}</li></a>
+            <li class="list-group-item {{dir[1] and 'list-group-item-primary'}}">
+                {% if dir[1] %}
+                <a href="{{ dir[0] }}" class="w">
+                {% else %}
+                <a href="{{ dir[0] }}/" class="w">
+                {% endif %}
+                
+                    {{dir[0]}}
+                </a>
+                <a href="/qr?filepath={{dir[2]}}" class="float-right"> <i class="fas fa-share-alt"></i> </a>
+            </li>
         {% endfor %}
     </ul>
-    {% endif %}  
     </div>
 </div>

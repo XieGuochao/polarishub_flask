@@ -13,5 +13,6 @@ def generateCode(url, filename = "qrcode.png"):
         save_name = filename,
         save_dir = os.path.join(os.getcwd(), 'temp')
     )
-    return qr_name
+    print(qr_name)
+    return qr_name, qr_name[qr_name.find("/temp"):]
 # print(version, level, qr_name)

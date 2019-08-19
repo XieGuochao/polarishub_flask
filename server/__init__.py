@@ -2,7 +2,7 @@ import os
 import sys
 sys.path.insert(0, os.getcwd())
 print(sys.path)
-from flask import Flask, request, abort, send_file, render_template
+from flask import Flask, request, abort, send_file, render_template, redirect, url_for
 
 import server.network as server
 import server.file_handler as file_handler
@@ -39,10 +39,10 @@ def create_app(test_config=None):
     def main():
         if network.checkIP(request.remote_addr):
             # From Host
-            return "From Host"
+            return redirect("/files/")
         else:
             # From client
-            return "From Client"
+            return redirect("/files/")            
 
     @app.route('/files/', defaults = {"filename":""})
     @app.route('/files/<path:filename>', methods=['GET', 'POST'])
@@ -76,12 +76,22 @@ def create_app(test_config=None):
         else:
             return abort(404)
 
+    @app.route('/temp/<path:temppath>')
+    def temp(temppath):
+        file_path = os.path.join(os.getcwd(), 'temp', temppath)
+        return send_file(file_path)
+
     @app.route('/qr')
     def qr():
-        filepath = request.values.get("filepath")
-        print(filepath, hash(filepath))
-        file_name = filepath + "_" + str(hash(filepath)) + ".png"
+        file_path = request.values.get("filepath")
+        print(file_path, hash(file_path))
+        file_name = str(hash(file_path)) + ".png"
         print(file_name)
-        return myqrcode.generateCode(filepath, file_name)
+        network_path = "http://{}:{}".format(network.get_host_ip(), request.host[request.host.find(":")+1:]) + file_path
+        return render_template("qrcode.html", filepath=myqrcode.generateCode(network_path, file_name)[1], filename=file_path)
 
+    @app.route("/about")
+    def about():
+        return render_template("about.html")
+        
     return app
