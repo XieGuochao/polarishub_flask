@@ -9,6 +9,9 @@ import server.file_handler as file_handler
 import server.myqrcode as myqrcode
 import json
 
+os_name = os.name
+print("os_name:", os_name)
+
 def create_app(test_config=None):
     # create and configure the app
     app = Flask(__name__, instance_relative_config=True, static_url_path='/static')
@@ -55,7 +58,7 @@ def create_app(test_config=None):
         if os.path.isfile(local_path):
             return send_file(local_path)
         elif os.path.isdir(local_path):
-            return render_template('index.html', cwd = local_path, dirs = file_handler.get_dir(local_path), is_admin = is_admin, user_settings = file_handler.get_settings())
+            return render_template('index.html', cwd = local_path.replace('\\', "\\\\") if os_name=="nt" else local_path, dirs = file_handler.get_dir(local_path), is_admin = is_admin, user_settings = file_handler.get_settings())
         else:
             abort(404)
 
@@ -64,7 +67,10 @@ def create_app(test_config=None):
         if network.checkIP(request.remote_addr):
             local_path = request.values.get('dir')
             print(local_path)
-            os.system("nautilus {}".format(local_path))
+            if os_name == "nt":
+                os.system("explorer {}".format(local_path))
+            else:
+                os.system("nautilus {}".format(local_path))
             return "Success"
         else:
             return abort(404)
@@ -88,6 +94,7 @@ def create_app(test_config=None):
         file_name = str(hash(file_path)) + ".png"
         print(file_name)
         network_path = "http://{}:{}".format(network.get_host_ip(), request.host[request.host.find(":")+1:]) + file_path
+        print("network_path", network_path)
         return render_template("qrcode.html", filepath=myqrcode.generateCode(network_path, file_name)[1], filename=file_path, user_settings = file_handler.get_settings())
 
     @app.route("/about")

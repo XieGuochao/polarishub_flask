@@ -14,5 +14,5 @@ def generateCode(url, filename = "qrcode.png"):
         save_dir = os.path.join(os.getcwd(), 'temp')
     )
     print(qr_name)
-    return qr_name, qr_name[qr_name.find("/temp"):]
+    return qr_name, '/' + qr_name[qr_name.find("temp"):].replace("\\", "/")
 # print(version, level, qr_name)
