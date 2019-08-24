@@ -72,7 +72,10 @@
                 
                     {{dir[0]}}
                 </a>
-                <a href="/qr?filepath={{dir[2].replace("\\", "/")}}" class="float-right"> <i class="fas fa-share-alt"></i> </a>
+                <div class="float-right d-flex flex-row">
+                    <div class="mr-3">{{"http://{}:5000{}".format(ip, dir[2].replace("\\", "/"))}}</div>
+                    <a href="/qr?filepath={{dir[2].replace("\\", "/")}}"> <i class="fas fa-share-alt"></i> </a>
+                </div>
             </li>
         {% endfor %}
     </ul>

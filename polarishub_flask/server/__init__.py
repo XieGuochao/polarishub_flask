@@ -13,6 +13,7 @@ os_name = os.name
 platform = sys.platform
 # print("os_name:", os_name)
 print ("platform:", platform)
+print ("cwd:", os.getcwd())
 
 def create_app(test_config=None):
     # create and configure the app
@@ -60,7 +61,9 @@ def create_app(test_config=None):
         if os.path.isfile(local_path):
             return send_file(local_path)
         elif os.path.isdir(local_path):
-            return render_template('index.html', cwd = local_path.replace('\\', "\\\\") if platform=="win32" else local_path, dirs = file_handler.get_dir(local_path), is_admin = is_admin, user_settings = file_handler.get_settings())
+            return render_template('index.html', cwd = local_path.replace('\\', "\\\\") if platform=="win32" else local_path, 
+                                   dirs = file_handler.get_dir(local_path), is_admin = is_admin, 
+                                   user_settings = file_handler.get_settings(), ip = network.get_host_ip())
         else:
             abort(404)
 
@@ -118,6 +121,13 @@ def create_app(test_config=None):
     @app.route('/halt')
     def halt():
         if network.checkIP(request.remote_addr):
-            exit()
+            print("Halting")
+            func = request.environ.get('werkzeug.server.shutdown')
+            if func is None:
+                raise RuntimeError('Not running with the Werkzeug Server')
+            func()
+            return "PolarisHub shutting down..."
+        else:
+            return abort(404)
             
     return app
