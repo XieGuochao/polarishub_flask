@@ -27,3 +27,4 @@ polarishub_flask/server/templates/about.html
 polarishub_flask/server/templates/index.html
 polarishub_flask/server/templates/qrcode.html
 polarishub_flask/server/templates/settings.html
+polarishub_flask/temp/null

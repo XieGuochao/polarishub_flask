@@ -1,14 +1,16 @@
 from polarishub_flask import server
-import os
+import os, sys
 from multiprocessing import Process
 
-os.chdir("polarishub_flask")
+if sys.platform != "win32":
+    os.chdir("polarishub_flask")
+    
 app = server.create_app()
 def open_browser():
-    if os.name == 'nt':
-        os.system("start http://localhost:5000/")
-    else:
-        os.system("python -m webbrowser \"http://localhost:5000/\"")
+    # if os.name == 'nt':
+        # os.system("start http://localhost:5000/")
+    # else:
+    os.system("python -m webbrowser \"http://localhost:5000/\"")
 
 def start_app():
     app.run(host="0.0.0.0", port=5000)

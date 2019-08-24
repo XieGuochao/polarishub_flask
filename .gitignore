@@ -4,3 +4,4 @@ venv
 diary.md
 build
 temp/*.png
+dist
