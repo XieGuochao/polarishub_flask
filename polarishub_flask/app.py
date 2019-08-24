@@ -1,6 +1,8 @@
-import server, os
+from polarishub_flask import server
+import os
 from multiprocessing import Process
 
+os.chdir("polarishub_flask")
 app = server.create_app()
 def open_browser():
     if os.name == 'nt':
@@ -11,6 +13,9 @@ def open_browser():
 def start_app():
     app.run(host="0.0.0.0", port=5000)
 
-if __name__ == "__main__":
+def main():
     open_browser()
     start_app()
+
+if __name__ == "__main__":
+    main()

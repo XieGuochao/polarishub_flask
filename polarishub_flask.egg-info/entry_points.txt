@@ -1,0 +1,3 @@
+[console_scripts]
+phub = polarishub_flask.app:main
+

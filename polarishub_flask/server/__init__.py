@@ -4,13 +4,15 @@ sys.path.insert(0, os.getcwd())
 print(sys.path)
 from flask import Flask, request, abort, send_file, render_template, redirect, url_for
 
-import server.network as server
-import server.file_handler as file_handler
-import server.myqrcode as myqrcode
+from polarishub_flask.server import network as server
+from polarishub_flask.server import file_handler as file_handler
+from polarishub_flask.server import myqrcode as myqrcode
 import json
 
 os_name = os.name
-print("os_name:", os_name)
+platform = sys.platform
+# print("os_name:", os_name)
+print ("platform:", platform)
 
 def create_app(test_config=None):
     # create and configure the app
@@ -58,7 +60,7 @@ def create_app(test_config=None):
         if os.path.isfile(local_path):
             return send_file(local_path)
         elif os.path.isdir(local_path):
-            return render_template('index.html', cwd = local_path.replace('\\', "\\\\") if os_name=="nt" else local_path, dirs = file_handler.get_dir(local_path), is_admin = is_admin, user_settings = file_handler.get_settings())
+            return render_template('index.html', cwd = local_path.replace('\\', "\\\\") if platform=="win32" else local_path, dirs = file_handler.get_dir(local_path), is_admin = is_admin, user_settings = file_handler.get_settings())
         else:
             abort(404)
 
@@ -67,8 +69,10 @@ def create_app(test_config=None):
         if network.checkIP(request.remote_addr):
             local_path = request.values.get('dir')
             print(local_path)
-            if os_name == "nt":
+            if platform == "win32":
                 os.system("explorer {}".format(local_path))
+            elif platform == "darwin":
+                os.system("open {}".format(local_path))
             else:
                 os.system("nautilus {}".format(local_path))
             return "Success"
@@ -111,4 +115,9 @@ def create_app(test_config=None):
         else:
             return abort(404)
 
+    @app.route('/halt')
+    def halt():
+        if network.checkIP(request.remote_addr):
+            exit()
+            
     return app

@@ -2,6 +2,7 @@
 <title>{{user_settings.username}}'s PolarisHub (Flask v0.1)</title>
 <link rel="stylesheet" href="/static/css/bootstrap.css">
 <link rel="stylesheet" href="/static/css/all.css">
+<link rel="icon" href="/static/favicon.ico"type=”image/x-icon”>
 <meta name="viewpoint" content="user-scalable=no, width=device-width, initial-scale=1.0">
 
 <div class="container">
@@ -28,6 +29,11 @@
         </a>
         <button button type="button" class="btn btn-outline-primary my-1" onclick="opendir()">Open Directory</button>
         <br>
+        <a href="/halt">
+            <button button type="button" class="btn btn-outline-primary my-1">
+                 Turn off
+            </button>
+        </a>
         <script>
             function opendir() {
                 fetch('/opendir?dir={{cwd}}').then((res)=>{
