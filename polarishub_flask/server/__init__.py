@@ -1,6 +1,7 @@
 import os
 import sys
-sys.path.insert(0, os.getcwd())
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 print(sys.path)
 from flask import Flask, request, abort, send_file, render_template, redirect, url_for
 

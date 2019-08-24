@@ -10,7 +10,7 @@ REQUIRED = [
 
 setuptools.setup(
     name="polarishub_flask",
-    version="0.1.2",
+    version="0.1.3",
     author="Guochao Xie",
     author_email="guochaoxie@link.cuhk.edu.cn",
     description="PolarisHub Flask version",
