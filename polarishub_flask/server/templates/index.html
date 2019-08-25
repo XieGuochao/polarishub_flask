@@ -9,11 +9,23 @@
     <div class="my-5">
     <div class="d-flex justify-content-between">
         <h1>{{user_settings.username}}'s PolarisHub (Flask v0.1)</h1>
-        <a href="/about"> 
-            <button button type="button" class="btn btn-outline-primary my-1 float-right">
-                About
-            </button>
-        </a>
+        <div>
+            <a href="https://github.com/XieGuochao/polarishub_flask" target="_blank">
+                <button button type="button" class="btn btn-outline-primary my-1">
+                    <i class="fab fa-github"></i> 
+                </button>
+            </a>
+            <a href="/about"> 
+                <button button type="button" class="btn btn-outline-primary my-1 ml-3 mr-3">
+                    About
+                </button>
+            </a>
+            <a href="/help"> 
+                <button button type="button" class="btn btn-outline-primary my-1 float-right">
+                    Help
+                </button>
+            </a>
+        </div>
     </div>
     <a href="/qr?filepath=/files" class="float-right">
         <button button type="button" class="btn btn-outline-primary my-1 float-right">

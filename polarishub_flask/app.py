@@ -2,8 +2,8 @@ from polarishub_flask import server
 import os, sys
 from multiprocessing import Process
 
-if sys.platform != "win32":
-    os.chdir("polarishub_flask")
+# if sys.platform != "win32":
+#     os.chdir("polarishub_flask")
     
 app = server.create_app()
 def open_browser():

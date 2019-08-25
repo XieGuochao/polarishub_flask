@@ -1,15 +1,23 @@
 <!DOCTYPE html>
-<title>About | PolarisHub (Flask v0.1)</title>
+<title>Help | PolarisHub (Flask v0.1)</title>
 <link rel="stylesheet" href="/static/css/bootstrap.css">
 <link rel="icon" href="/static/favicon.ico"type=”image/x-icon”>
 <meta name="viewpoint" content="user-scalable=no, width=device-width, initial-scale=1.0">
 
 <div class="container my-5">
-    <h1>About PolarisHub (Flask v0.1) </h1>
+    <h1>Help | PolarisHub (Flask v0.1) </h1>
     <a href="/"> 
         <button button type="button" class="btn btn-outline-primary my-1">
             Back Home 
         </button>
     </a>
-    <p>Remain construction.</p>
+    <ul>
+        {% for content in help_content %}
+        <li><a href="#{{content[0]}}">{{content[0]}}</a></li>
+        {% endfor %}
+    </ul>
+    {% for content in help_content %}
+    <h2 id="{{content[0]}}">{{content[0]}}</h2>
+    <p>{{content[1]}}</p>
+    {% endfor %}
 </div>

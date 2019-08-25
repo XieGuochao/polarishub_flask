@@ -9,6 +9,7 @@ from polarishub_flask.server import network as server
 from polarishub_flask.server import file_handler as file_handler
 from polarishub_flask.server import myqrcode as myqrcode
 import json
+from polarishub_flask.server import help
 
 os_name = os.name
 platform = sys.platform
@@ -130,5 +131,9 @@ def create_app(test_config=None):
             return "PolarisHub shutting down..."
         else:
             return abort(404)
-            
+    
+    @app.route('/help')
+    def help_page():
+        return render_template('help.html', help_content = help.help_content)
+
     return app

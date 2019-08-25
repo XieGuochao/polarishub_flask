@@ -10,7 +10,7 @@ REQUIRED = [
 
 setuptools.setup(
     name="polarishub_flask",
-    version="0.1.3",
+    version="0.1.5",
     author="Guochao Xie",
     author_email="guochaoxie@link.cuhk.edu.cn",
     description="PolarisHub Flask version",
@@ -27,5 +27,5 @@ setuptools.setup(
     entry_points = {
         'console_scripts': ['phub=polarishub_flask.app:main']
     },
-    package_data = {'':['files/*', 'files/*/*', 'server/*/*', 'temp/*', "server/*"]}
+    package_data = {'':['files/*', 'files/*/*', 'server/*/*', 'temp/*', "server/*", "server/*/*/*"]}
 )
