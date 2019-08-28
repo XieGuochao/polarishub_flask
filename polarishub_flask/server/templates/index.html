@@ -36,22 +36,25 @@
             </a>
         </div>
     </div>
-    <a href="/qr?filepath=/files" class="float-right">
-        <button button type="button" class="btn btn-outline-primary my-1 float-right">
-            <i class="fas fa-share-alt"></i> 
-        </button>
-    </a>
+    <div>
+        <a href="/qr?filepath=/files" class="float-right">
+            <button button type="button" class="btn btn-outline-primary my-1 float-right">
+                <i class="fas fa-share-alt"></i> 
+            </button>
+        </a>
+    </div>
 
     {% if is_admin %}
-        <a href="/settings">
-            <button button type="button" class="btn btn-outline-primary my-1">
+    <div class="d-flex flex-row">
+        <a href="/settings" class=" flex-fill">
+            <button button type="button" class="btn btn-outline-primary my-1 btn-block">
                  Settings 
             </button>
         </a>
-        <button button type="button" class="btn btn-outline-primary my-1" onclick="opendir()">Open Directory</button>
+        <button button type="button" class="btn btn-outline-primary my-1 flex-fill" onclick="opendir()">Open Directory</button>
         <br>
-        <a href="/halt">
-            <button button type="button" class="btn btn-outline-primary my-1">
+        <a href="/halt" class=" flex-fill">
+            <button button type="button" class="btn btn-outline-primary my-1 btn-block">
                  Shutdown
             </button>
         </a>
@@ -70,6 +73,7 @@
             }
         </script>
         <br>
+    </div>
     {% endif %}
 
     </div>
@@ -79,16 +83,22 @@
     
     <ul class="list-group">
         <li class="list-group-item">
+            <i class="fa fa-folder" aria-hidden="true"></i>
             <a href="../" class="w">
                 ../
             </a>
         </li>
         {% for dir in dirs %}
-            <li class="list-group-item {{dir[1] and 'list-group-item-primary'}}">
+            <li class="list-group-item ">
                 {% if dir[1] %}
-                <a href="{{ dir[0] }}" class="w">
+                    <i class="fa fa-file" aria-hidden="true"></i>
                 {% else %}
-                <a href="{{ dir[0] }}/" class="w">
+                    <i class="fa fa-folder" aria-hidden="true"></i>
+                {% endif %}
+                {% if dir[1] %}
+                    <a href="{{ dir[0] }}" class="w">
+                {% else %}
+                    <a href="{{ dir[0] }}/" class="w">
                 {% endif %}
                 
                     {{dir[0]}}

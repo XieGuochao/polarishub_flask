@@ -85,14 +85,14 @@ def create_app(test_config=None):
                 os.system("nautilus {}".format(local_path))
             return "Success"
         else:
-            return abort(404)
+            return abort(403)
 
     @app.route('/settings')
     def open_setting():
         if network.checkIP(request.remote_addr):
             return render_template("settings.html", user_settings = file_handler.get_settings())
         else:
-            return abort(404)
+            return abort(403)
 
     @app.route('/temp/<path:temppath>')
     def temp(temppath):
@@ -121,7 +121,7 @@ def create_app(test_config=None):
             else:
                 return abort(500)
         else:
-            return abort(404)
+            return abort(403)
 
     @app.route('/halt')
     def halt():
@@ -133,7 +133,7 @@ def create_app(test_config=None):
             func()
             return "PolarisHub shutting down..."
         else:
-            return abort(404)
+            return abort(403)
     
     @app.route('/help')
     def help_page():
