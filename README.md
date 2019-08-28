@@ -68,3 +68,8 @@ We welcome everyone who is interested in **PolarisHub** to join us: **Polaris St
 1. **Go Version**. We are going to refactor **PolarisHub** in *Golang*, which can be compiled and deployed to every platform without *Python*.
 2. **Public Server for host consultation**. We are going to build a public server such that everyone can share their file links (in local network) on it.
 3. **More powerful PolarisHub**. More features will be added, such as *access password*, and etc..
+
+## Contributors:
+- Guochao Xie
+- Senyue Hao
+- Yongqi Zhang

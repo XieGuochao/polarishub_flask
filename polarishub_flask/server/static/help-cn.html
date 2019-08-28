@@ -15,7 +15,6 @@
     </button>
   </a>
   <div class="my-1"></div>
-
   <style>
     /**
        * prism.js Github theme based on GitHub's theme.
@@ -775,68 +774,80 @@
   </style>
   <div class="mume markdown-preview  ">
     <p>
-      <strong>[EN]</strong>
-      <a href="/static/help-cn.html">[&#x4E2D;&#x6587;&#x7248;&#x672C;]</a>
+      <a href="/static/help.html">[EN]</a>
+      <strong>[&#x4E2D;&#x6587;&#x7248;&#x672C;]</strong>
     </p>
     <ol>
-      <li>
-        <a href="#how-to-install-polarishub">How to install PolarisHub</a>
-      </li>
-      <li><a href="#how-to-run-polarishub">How to run PolarisHub</a></li>
+      <li><a href="#install">&#x5B89;&#x88C5;PolarisHub</a></li>
+      <li><a href="#run">&#x8FD0;&#x884C;PolarisHub</a></li>
     </ol>
-    <h2 class="mume-header" id="how-to-install-polarishub">
-      How to install PolarisHub
-    </h2>
-
-    <h3 class="mume-header" id="install-with-pip-recommended">
-      Install with <em>pip</em> (Recommended)
-    </h3>
-
-    <ol>
-      <li>
-        Make sure you have the <em>Python3</em> and <em>pip</em> properly
-        installed.
-      </li>
-      <li>
-        Run <code>$ pip install polarishub_flask</code> or
-        <code>$ pip install polarishub_flask==X.X.X</code> (version code).
-      </li>
-      <li>Done!</li>
-    </ol>
-    <h3 class="mume-header" id="download-the-source-code">
-      Download the source code
-    </h3>
-
-    <ol>
-      <li>
-        <code
-          >git clone https://github.com/XieGuochao/polarishub_flask.git</code
-        >
-      </li>
-    </ol>
-    <h2 class="mume-header" id="how-to-run-polarishub">
-      How to run PolarisHub
-    </h2>
-
-    <h3 class="mume-header" id="run-with-pip-installation-recommended">
-      Run with <em>pip</em> installation (Recommended)
-    </h3>
-
-    <ol>
-      <li>
-        <code>$ phub</code> (Run <code>$ phub -h</code> for more information on
-        the optional arguments)
-      </li>
-    </ol>
-    <h3 class="mume-header" id="run-with-source-code">Run with source code</h3>
-
-    <ol>
-      <li><code>$ cd polarishub_flask</code></li>
-      <li>
-        <code>$ python3 fastrun.py</code> (Run
-        <code>$ python3 fastrun.py -h</code> for more information on the
-        optional argumetns)
-      </li>
-    </ol>
+    <span id="install">
+      <h1>&#x5B89;&#x88C5;PolarisHub</h1>
+      <p>
+        PolarisHub&#x5171;&#x6709;&#x4E24;&#x79CD;&#x5B89;&#x88C5;&#x65B9;&#x5F0F;&#xFF1A;&#x4F7F;&#x7528;<em>pip</em>&#x5B89;&#x88C5;&#xFF08;&#x63A8;&#x8350;&#xFF09;&#x6216;&#x8005;&#x5728;[github](git
+        clone
+        <a href="https://github.com/XieGuochao/polarishub_flask.git"
+          >https://github.com/XieGuochao/polarishub_flask.git</a
+        >)&#x4E0A;&#x4E0B;&#x8F7D;&#x6E90;&#x4EE3;&#x7801;
+      </p>
+      <h3>&#x4F7F;&#x7528;<em>pip</em>&#x6765;&#x5B89;&#x88C5;PolarisHub</h3>
+      <ol>
+        <li>
+          &#x786E;&#x4FDD;&#x4F60;&#x7684;&#x7535;&#x8111;&#x5DF2;&#x7ECF;&#x5B89;&#x88C5;&#x4E86;<em>Python3</em>&#x548C;<em>pip</em>&#xFF0C;&#x5E76;&#x8BF7;&#x5C06;<em>pip</em>&#x66F4;&#x65B0;&#x81F3;&#x6700;&#x65B0;&#x7248;&#x672C;
+        </li>
+        <li>
+          &#x6253;&#x5F00;&#x7535;&#x8111;&#x7EC8;&#x7AEF;&#xFF08;terminal&#xFF09;&#xFF0C;&#x8F93;&#x5165;<code
+            >$ pip install polarishub_flask</code
+          >&#x6216;&#x8005;<code
+            >pip install
+            polarishub_flask==X.X.X&#xFF08;&#x7248;&#x672C;&#x578B;&#x53F7;&#xFF09;</code
+          >
+        </li>
+        <li>
+          PolarisHub&#x4F1A;&#x81EA;&#x52A8;&#x5B89;&#x88C5;&#x5230;&#x4F60;&#x7684;&#x7535;&#x8111;
+        </li>
+      </ol>
+      <h3>&#x4E0B;&#x8F7D;PolarisHub&#x7684;&#x6E90;&#x4EE3;&#x7801;</h3>
+      <ol>
+        <li>
+          <code
+            >git clone https://github.com/XieGuochao/polarishub_flask.git</code
+          >
+        </li>
+      </ol>
+    </span>
+    <span id="run">
+      <h1>&#x8FD0;&#x884C;PolarisHub</h1>
+      <p>
+        &#x540C;&#x6837;&#x7684;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#x6765;&#x8FD0;&#x884C;PolarisHub&#xFF1A;
+      </p>
+      <h3>&#x8FD0;&#x884C;<em>pip</em>&#x5B89;&#x88C5;&#x7684;PolarisHub</h3>
+      <ol>
+        <li>
+          &#x6253;&#x5F00;&#x7535;&#x8111;&#x7EC8;&#x7AEF;&#xFF08;terminal&#xFF09;&#xFF0C;&#x8F93;&#x5165;<code
+            >$ phub</code
+          >
+        </li>
+        <li>
+          &#x5982;&#x679C;&#x4F60;&#x9700;&#x8981;&#x66F4;&#x591A;&#x7684;&#x4FE1;&#x606F;&#x6216;&#x8005;&#x5E2E;&#x52A9;&#xFF0C;&#x53EF;&#x4EE5;&#x8F93;&#x5165;<code
+            >$ phub -h</code
+          >&#x6765;&#x8FD0;&#x884C;PolarisHub
+        </li>
+      </ol>
+      <h3>&#x8FD0;&#x884C;PolarisHub&#x6E90;&#x4EE3;&#x7801;</h3>
+      <ol>
+        <li>
+          &#x6253;&#x5F00;&#x7535;&#x8111;&#x7EC8;&#x7AEF;&#xFF08;terminal&#xFF09;&#xFF0C;&#x8F93;&#x5165;<code
+            >$ cd /&#x4F60;&#x7684;&#x8DEF;&#x5F84;/polarishub_flask</code
+          >&#x53BB;&#x5230;&#x4F60;&#x4E0B;&#x8F7D;&#x7684;PolarisHub&#x6240;&#x5728;&#x4F4D;&#x7F6E;
+        </li>
+        <li>&#x8F93;&#x5165;<code>$ python3 fastrun.py</code></li>
+        <li>
+          &#x540C;&#x6837;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x9700;&#x8981;&#x66F4;&#x591A;&#x7684;&#x4FE1;&#x606F;&#x6216;&#x8005;&#x5E2E;&#x52A9;&#xFF0C;&#x53EF;&#x4EE5;&#x8F93;&#x5165;<code
+            >$ python3 fastrun.py -h</code
+          >&#x6765;&#x8FD0;&#x884C;PolarisHub
+        </li>
+      </ol>
+    </span>
   </div>
 </div>
