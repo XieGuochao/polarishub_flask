@@ -1,4 +1,6 @@
 # Help | PolarisHub (Flask Version)
+**[EN]** [[中文版本]](HELP-CN.md)
+
 1. [How to install PolarisHub](#how-to-install-polarishub)
 2. [How to run PolarisHub](#how-to-run-polarishub)
 
