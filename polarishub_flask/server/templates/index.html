@@ -1,5 +1,9 @@
 <!doctype html>
-<title>{{user_settings.username}}'s PolarisHub (Flask v0.1)</title>
+{% if user_settings.username == "" %}
+    <title>PolarisHub (Flask v0.1)</title>
+{% else %}
+    <title>{{user_settings.username}}'s PolarisHub (Flask v0.1)</title>
+{% endif %}
 <link rel="stylesheet" href="/static/css/bootstrap.css">
 <link rel="stylesheet" href="/static/css/all.css">
 <link rel="icon" href="/static/favicon.ico"type=”image/x-icon”>
@@ -8,7 +12,12 @@
 <div class="container">
     <div class="my-5">
     <div class="d-flex justify-content-between">
+        {% if user_settings.username == "" %}
+            <h1>PolarisHub (Flask v0.1)</h1>
+        {% else %}
         <h1>{{user_settings.username}}'s PolarisHub (Flask v0.1)</h1>
+        {% endif %}
+
         <div>
             <a href="https://github.com/XieGuochao/polarishub_flask" target="_blank">
                 <button button type="button" class="btn btn-outline-primary my-1">
@@ -43,7 +52,7 @@
         <br>
         <a href="/halt">
             <button button type="button" class="btn btn-outline-primary my-1">
-                 Turn off
+                 Shutdown
             </button>
         </a>
         <script>

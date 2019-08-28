@@ -2,7 +2,10 @@ import os
 import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-print(sys.path)
+
+from polarishub_flask.server.parser import printv
+
+# printv(sys.path)
 from flask import Flask, request, abort, send_file, render_template, redirect, url_for
 
 from polarishub_flask.server import network as server
@@ -13,9 +16,9 @@ from polarishub_flask.server import help
 
 os_name = os.name
 platform = sys.platform
-# print("os_name:", os_name)
-print ("platform:", platform)
-print ("cwd:", os.getcwd())
+# printv("os_name:", os_name)
+printv ("platform:", platform)
+printv ("cwd:", os.getcwd())
 
 def create_app(test_config=None):
     # create and configure the app
@@ -55,9 +58,9 @@ def create_app(test_config=None):
     @app.route('/files/', defaults = {"filename":""})
     @app.route('/files/<path:filename>', methods=['GET', 'POST'])
     def file(filename):
-        print("files/" + filename)
+        printv("files/" + filename)
         local_path = os.path.join(os.getcwd(), 'files', filename)
-        print (local_path)
+        printv (local_path)
         is_admin = network.checkIP(request.remote_addr)
 
         if os.path.isfile(local_path):
@@ -73,7 +76,7 @@ def create_app(test_config=None):
     def opendir():
         if network.checkIP(request.remote_addr):
             local_path = request.values.get('dir')
-            print(local_path)
+            printv(local_path)
             if platform == "win32":
                 os.system("explorer {}".format(local_path))
             elif platform == "darwin":
@@ -99,11 +102,11 @@ def create_app(test_config=None):
     @app.route('/qr')
     def qr():
         file_path = request.values.get("filepath")
-        print(file_path, hash(file_path))
+        printv(file_path, hash(file_path))
         file_name = str(hash(file_path)) + ".png"
-        print(file_name)
+        printv(file_name)
         network_path = "http://{}:{}".format(network.get_host_ip(), request.host[request.host.find(":")+1:]) + file_path
-        print("network_path", network_path)
+        printv("network_path", network_path)
         return render_template("qrcode.html", filepath=myqrcode.generateCode(network_path, file_name)[1], filename=file_path, user_settings = file_handler.get_settings())
 
     @app.route("/about")
@@ -123,7 +126,7 @@ def create_app(test_config=None):
     @app.route('/halt')
     def halt():
         if network.checkIP(request.remote_addr):
-            print("Halting")
+            printv("Halting")
             func = request.environ.get('werkzeug.server.shutdown')
             if func is None:
                 raise RuntimeError('Not running with the Werkzeug Server')

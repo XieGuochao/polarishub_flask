@@ -1,5 +1,6 @@
 from MyQR import myqr
 import os
+from polarishub_flask.server.parser import printv
 
 def generateCode(url, filename = "qrcode.png"):
     version, level, qr_name = myqr.run(
@@ -13,6 +14,6 @@ def generateCode(url, filename = "qrcode.png"):
         save_name = filename,
         save_dir = os.path.join(os.getcwd(), 'temp')
     )
-    print(qr_name)
+    printv(qr_name)
     return qr_name, '/' + qr_name[qr_name.find("temp"):].replace("\\", "/")
-# print(version, level, qr_name)
+# printv(version, level, qr_name)

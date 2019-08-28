@@ -7,4 +7,5 @@ help_content = [
     ('How to delete a file', "The same way as uploading a file, that is, you click on 'Open Directory' and delete files within your local file system!"),
     ('How to turn off PolarisHub', "The graceful way is to click on 'Turn off' on your homepage."),
     ('How to change settings', "Click on 'Settings' and you can easily change your settings."),
+    ('For more command argument settigns', "Run $ phub -h")
 ]

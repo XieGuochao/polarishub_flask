@@ -1,5 +1,6 @@
 import os, sys, json
 from flask import abort
+from polarishub_flask.server.parser import printv
 settings = {}
 
 def load_settings():
@@ -24,10 +25,10 @@ def save_settings():
 def get_dir(path):
     if os.path.isdir(path):
         path_list = os.listdir(path)
-        # print (path_list, path)
-        print(os.getcwd())
+        # printv (path_list, path)
+        printv(os.getcwd())
         path_list = [(path_list[i], os.path.isfile(os.path.join(path, path_list[i])), os.path.join(path[len(os.getcwd()):], path_list[i])) for i in range(len(path_list))]
-        print ("path_list", path_list)
+        printv ("path_list", path_list)
         return path_list
     else:
         abort(404)
@@ -37,16 +38,16 @@ keys = {
     } 
 def update_settings(new_settings):
     global settings
-    print(new_settings)
+    printv(new_settings)
     # for items in new_settings:
-        # print (items)
+        # printv (items)
     for key, value in new_settings.items():
-        # print(items)
+        # printv(items)
         # key, value = items
-        print ((key, value))
+        printv ((key, value))
         if key in keys.keys() and keys[key](value):
-            print ("key gets:", key)
-            print (key, value)
+            printv ("key gets:", key)
+            printv (key, value)
             if value:
                 settings[key] = value
         else:
