@@ -111,7 +111,8 @@ def create_app(test_config=None):
 
     @app.route("/about")
     def about():
-        return render_template("about.html")
+        return redirect('/static/about.html')
+        # return render_template("about.html")
     
     @app.route('/update_settings', methods = ["POST"])
     def update_settings():
@@ -137,6 +138,7 @@ def create_app(test_config=None):
     
     @app.route('/help')
     def help_page():
-        return render_template('help.html', help_content = help.help_content)
+        return redirect('/static/help.html')
+        # return render_template('help.html', help_content = help.help_content)
 
     return app

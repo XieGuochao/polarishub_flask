@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<title>帮助 | PolarisHub (Flask v0.1)</title>
+<title>About | PolarisHub (Flask v0.1)</title>
 <link rel="stylesheet" href="/static/css/bootstrap.css" />
 <link rel="icon" href="/static/favicon.ico"type=”image/x-icon”>
 <meta
@@ -8,18 +8,17 @@
 />
 
 <div class="container my-5">
-  <h1>帮助 | PolarisHub (Flask v0.1)</h1>
+  <h1>About PolarisHub (Flask v0.1)</h1>
   <a href="/">
     <button button type="button" class="btn btn-outline-primary my-1">
       Back Home / 返回首页
     </button>
   </a>
-  <div class="my-1"></div>
   <style>
     /**
-       * prism.js Github theme based on GitHub's theme.
-       * @author Sam Clarke
-       */
+* prism.js Github theme based on GitHub's theme.
+* @author Sam Clarke
+*/
     code[class*="language-"],
     pre[class*="language-"] {
       color: #333;
@@ -774,80 +773,209 @@
   </style>
   <div class="mume markdown-preview  ">
     <p>
-      <a href="/static/help.html">[EN]</a>
-      <strong>[&#x4E2D;&#x6587;&#x7248;&#x672C;]</strong>
+      <strong>[EN]</strong>
+      <a href="/static/about-cn.html">[&#x4E2D;&#x6587;&#x7248;&#x672C;]</a>
     </p>
     <ol>
-      <li><a href="#install">&#x5B89;&#x88C5;PolarisHub</a></li>
-      <li><a href="#run">&#x8FD0;&#x884C;PolarisHub</a></li>
+      <li><a href="#what-is-polarishub">What is PolarisHub</a></li>
+      <li>
+        <a href="#how-to-install-polarishub">How to install PolarisHub</a>
+      </li>
+      <li><a href="#how-to-run-polarishub">How to run PolarisHub</a></li>
+      <li>
+        <a href="#the-advantages-of-polarishub">The advantages of PolarisHub</a>
+      </li>
+      <li>
+        <a href="#the-inspiration-of-polarishub"
+          >The inspiration of PolarisHub</a
+        >
+      </li>
+      <li><a href="#future-plan">Future plan</a></li>
     </ol>
-    <span id="install">
-      <h1>&#x5B89;&#x88C5;PolarisHub</h1>
-      <p>
-        PolarisHub&#x5171;&#x6709;&#x4E24;&#x79CD;&#x5B89;&#x88C5;&#x65B9;&#x5F0F;&#xFF1A;&#x4F7F;&#x7528;<em>pip</em>&#x5B89;&#x88C5;&#xFF08;&#x63A8;&#x8350;&#xFF09;&#x6216;&#x8005;&#x5728;[github](git
-        clone
-        <a href="https://github.com/XieGuochao/polarishub_flask.git"
-          >https://github.com/XieGuochao/polarishub_flask.git</a
-        >)&#x4E0A;&#x4E0B;&#x8F7D;&#x6E90;&#x4EE3;&#x7801;
-      </p>
-      <h3>&#x4F7F;&#x7528;<em>pip</em>&#x6765;&#x5B89;&#x88C5;PolarisHub</h3>
-      <ol>
-        <li>
-          &#x786E;&#x4FDD;&#x4F60;&#x7684;&#x7535;&#x8111;&#x5DF2;&#x7ECF;&#x5B89;&#x88C5;&#x4E86;<em>Python3</em>&#x548C;<em>pip</em>&#xFF0C;&#x5E76;&#x8BF7;&#x5C06;<em>pip</em>&#x66F4;&#x65B0;&#x81F3;&#x6700;&#x65B0;&#x7248;&#x672C;
-        </li>
-        <li>
-          &#x6253;&#x5F00;&#x7535;&#x8111;&#x7EC8;&#x7AEF;&#xFF08;terminal&#xFF09;&#xFF0C;&#x8F93;&#x5165;<code
-            >$ pip install polarishub_flask</code
-          >&#x6216;&#x8005;<code
-            >pip install
-            polarishub_flask==X.X.X&#xFF08;&#x7248;&#x672C;&#x578B;&#x53F7;&#xFF09;</code
-          >
-        </li>
-        <li>
-          PolarisHub&#x4F1A;&#x81EA;&#x52A8;&#x5B89;&#x88C5;&#x5230;&#x4F60;&#x7684;&#x7535;&#x8111;
-        </li>
-      </ol>
-      <h3>&#x4E0B;&#x8F7D;PolarisHub&#x7684;&#x6E90;&#x4EE3;&#x7801;</h3>
-      <ol>
-        <li>
-          <code
-            >git clone https://github.com/XieGuochao/polarishub_flask.git</code
-          >
-        </li>
-      </ol>
-    </span>
-    <span id="run">
-      <h1>&#x8FD0;&#x884C;PolarisHub</h1>
-      <p>
-        &#x540C;&#x6837;&#x7684;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#x6765;&#x8FD0;&#x884C;PolarisHub&#xFF1A;
-      </p>
-      <h3>&#x8FD0;&#x884C;<em>pip</em>&#x5B89;&#x88C5;&#x7684;PolarisHub</h3>
-      <ol>
-        <li>
-          &#x6253;&#x5F00;&#x7535;&#x8111;&#x7EC8;&#x7AEF;&#xFF08;terminal&#xFF09;&#xFF0C;&#x8F93;&#x5165;<code
-            >$ phub</code
-          >
-        </li>
-        <li>
-          &#x5982;&#x679C;&#x4F60;&#x9700;&#x8981;&#x66F4;&#x591A;&#x7684;&#x4FE1;&#x606F;&#x6216;&#x8005;&#x5E2E;&#x52A9;&#xFF0C;&#x53EF;&#x4EE5;&#x8F93;&#x5165;<code
-            >$ phub -h</code
-          >&#x6765;&#x8FD0;&#x884C;PolarisHub
-        </li>
-      </ol>
-      <h3>&#x8FD0;&#x884C;PolarisHub&#x6E90;&#x4EE3;&#x7801;</h3>
-      <ol>
-        <li>
-          &#x6253;&#x5F00;&#x7535;&#x8111;&#x7EC8;&#x7AEF;&#xFF08;terminal&#xFF09;&#xFF0C;&#x8F93;&#x5165;<code
-            >$ cd /&#x4F60;&#x7684;&#x8DEF;&#x5F84;/polarishub_flask</code
-          >&#x53BB;&#x5230;&#x4F60;&#x4E0B;&#x8F7D;&#x7684;PolarisHub&#x6240;&#x5728;&#x4F4D;&#x7F6E;
-        </li>
-        <li>&#x8F93;&#x5165;<code>$ python3 fastrun.py</code></li>
-        <li>
-          &#x540C;&#x6837;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x9700;&#x8981;&#x66F4;&#x591A;&#x7684;&#x4FE1;&#x606F;&#x6216;&#x8005;&#x5E2E;&#x52A9;&#xFF0C;&#x53EF;&#x4EE5;&#x8F93;&#x5165;<code
-            >$ python3 fastrun.py -h</code
-          >&#x6765;&#x8FD0;&#x884C;PolarisHub
-        </li>
-      </ol>
-    </span>
+    <h2 class="mume-header" id="what-is-polarishub">What is PolarisHub</h2>
+
+    <p>
+      PolarisHub is a <strong>free, fast, easy, secure</strong> file transfer
+      tool. The current version is based on <em>Flask (Python)</em>, which can
+      be deployed on all computers with <em>Python</em>. With the command
+      <em>phub</em>, the <strong>PolarisHub</strong> will start, and you can
+      manage your <strong>PolarisHub</strong> with
+      <em>GUI of web browser</em> (url:
+      <em><a href="http://localhost:5000/">http://localhost:5000/</a></em
+      >). You can share your files using <em>url links</em> and
+      <em>QR Code</em>, whoever in the same network can access your shared
+      files. You can also gracefully shutdown <strong>PolarisHub</strong> with
+      one click!
+    </p>
+    <h2 class="mume-header" id="how-to-install-polarishub">
+      How to install PolarisHub
+    </h2>
+
+    <h3 class="mume-header" id="install-with-pip-recommended">
+      Install with <em>pip</em> (Recommended)
+    </h3>
+
+    <ol>
+      <li>
+        Make sure you have the <em>Python3</em> and <em>pip</em> properly
+        installed.
+      </li>
+      <li>
+        Run <code>$ pip install polarishub_flask</code> or
+        <code>$ pip install polarishub_flask==X.X.X</code> (version code).
+      </li>
+      <li>Done!</li>
+    </ol>
+    <h3 class="mume-header" id="download-the-source-code">
+      Download the source code
+    </h3>
+
+    <ol>
+      <li>
+        <code
+          >git clone https://github.com/XieGuochao/polarishub_flask.git</code
+        >
+      </li>
+    </ol>
+    <h2 class="mume-header" id="how-to-run-polarishub">
+      How to run PolarisHub
+    </h2>
+
+    <h3 class="mume-header" id="run-with-pip-installation-recommended">
+      Run with <em>pip</em> installation (Recommended)
+    </h3>
+
+    <ol>
+      <li>
+        <code>$ phub</code> (Run <code>$ phub -h</code> for more information on
+        the optional arguments)
+      </li>
+    </ol>
+    <h3 class="mume-header" id="run-with-source-code">Run with source code</h3>
+
+    <ol>
+      <li><code>$ cd polarishub_flask</code></li>
+      <li>
+        <code>$ python3 fastrun.py</code> (Run
+        <code>$ python3 fastrun.py -h</code> for more information on the
+        optional argumetns)
+      </li>
+    </ol>
+    <h2 class="mume-header" id="the-advantages-of-polarishub">
+      The advantages of PolarisHub
+    </h2>
+
+    <p>(May use a graph)</p>
+    <h3
+      class="mume-header"
+      id="compared-with-onedrive-icloud-or-similar-cloud-file-storage"
+    >
+      Compared with <em>OneDrive</em>, <em>iCloud</em>, or similar cloud file
+      storage
+    </h3>
+
+    <ol>
+      <li>
+        <strong>Fast</strong>. Taking the advantage of LAN with almost unlimited
+        bandwidth, the file transfer using <strong>PolarisHub</strong> can reach
+        the speed limit of the network, i.e. X MB/s ~ XX MB/s.
+      </li>
+      <li>
+        <strong>Private</strong>. <strong>PolarisHub</strong> is a decentralized
+        platform, which originally does not provide a cloud center. Therefore,
+        you own the <strong>100% authority</strong> of your files, and no one
+        can perceive your transfer on the application layer.
+      </li>
+      <li>
+        <strong>Secure</strong>. <strong>PolarisHub</strong> is an open-source
+        project, where everyone can contribute to fix the potential bugs and
+        there will not be privacy compromise problem.
+      </li>
+    </ol>
+    <h3 class="mume-header" id="compared-with-wechat">
+      Compared with <em>WeChat</em>
+    </h3>
+
+    <ol>
+      <li>
+        <strong>Unlimited size of files</strong>. We are no longer worried about
+        the size of our files, which is restricted by <em>WeChat</em>.
+      </li>
+      <li><strong>Fast</strong>. The same as indicated above.</li>
+    </ol>
+    <h3 class="mume-header" id="compared-with-airdrop">
+      Compared with <em>AirDrop</em>
+    </h3>
+
+    <ol>
+      <li>
+        <strong>Free</strong>. No limitation of the Apple hardware, we are
+        building a software that every computer can use!
+      </li>
+      <li>
+        <strong>Longer Distance</strong>. As long as the transfer is within a
+        LAN, it can even be done between
+        <em>the upper campus and the lower campus</em> and across every
+        classroom and building!
+      </li>
+    </ol>
+    <h3 class="mume-header" id="other-advantages">Other advantages</h3>
+
+    <ol>
+      <li>
+        <strong>Easy Deployment</strong>. <strong>PolarisHub</strong> can be
+        deployed on every computer installed with <em>Python</em> using
+        <em>pip</em>. There is no compilation requirement for it.
+      </li>
+    </ol>
+    <h2 class="mume-header" id="the-inspiration-of-polarishub">
+      The inspiration of PolarisHub
+    </h2>
+
+    <p>
+      The inspiration of PolarisHub comes from the annoying experience of using
+      the current file transfer tools, as discussed above. Therefore, we are
+      trying to build a software which overcomes all the disadvantages of other
+      tools, a <strong>free, fast, easy, secure</strong> tool.
+    </p>
+    <h2 class="mume-header" id="future-plan">Future plan</h2>
+
+    <p>
+      We welcome everyone who is interested in <strong>PolarisHub</strong> to
+      join us: <strong>Polaris Studio</strong>! You can find us on GitHub
+      <em
+        ><a href="https://github.com/XieGuochao/polarishub_flask"
+          >https://github.com/XieGuochao/polarishub_flask</a
+        ></em
+      >
+      or send email to
+      <em
+        ><a href="mailto:st_polarisstudio@link.cuhk.edu.cn"
+          >st_polarisstudio@link.cuhk.edu.cn</a
+        ></em
+      >.
+    </p>
+    <ol>
+      <li>
+        <strong>Go Version</strong>. We are going to refactor
+        <strong>PolarisHub</strong> in <em>Golang</em>, which can be compiled
+        and deployed to every platform without <em>Python</em>.
+      </li>
+      <li>
+        <strong>Public Server for host consultation</strong>. We are going to
+        build a public server such that everyone can share their file links (in
+        local network) on it.
+      </li>
+      <li>
+        <strong>More powerful PolarisHub</strong>. More features will be added,
+        such as <em>access password</em>, and etc..
+      </li>
+    </ol>
+    <h2 class="mume-header" id="contributors">Contributors:</h2>
+    <ul>
+      <li>Guochao Xie</li>
+      <li>Senyue Hao</li>
+      <li>Yongqi Zhang</li>
+    </ul>
   </div>
 </div>

@@ -12,11 +12,13 @@
 <div class="container">
     <div class="my-5">
     <div class="d-flex justify-content-between">
+        <div class="d-flex  align-items-end">
         {% if user_settings.username == "" %}
-            <h1>PolarisHub (Flask v0.1)</h1>
+            <h1 class="mr-3">PolarisHub</h1> <p>(Flask v0.1)</p>
         {% else %}
-        <h1>{{user_settings.username}}'s PolarisHub (Flask v0.1)</h1>
+            <h1 class="mr-3">{{user_settings.username}}'s PolarisHub</h1> <p> (Flask v0.1)</p>
         {% endif %}
+        </div>
 
         <div>
             <a href="https://github.com/XieGuochao/polarishub_flask" target="_blank">
