@@ -1,3 +1,4 @@
 [console_scripts]
 phub = polarishub_flask.app:main
+polarishub = polarishub_flask.app:main
 
