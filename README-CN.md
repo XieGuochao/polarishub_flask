@@ -93,6 +93,7 @@ PolarisHub共有两种安装方式：使用*pip*安装（推荐）或者在[gith
 ## 我们的计划
 
 我们欢迎所有对**PolarisHub**感兴趣的人加入我们：**Polaris Studio**！您可以在GitHub上找到我们https://github.com/XieGuochao/polarishub_flask 或通过电子邮件 st_polarisstudio@link.cuhk.edu.cn 联系我们。
+[点击此处](https://mp.weixin.qq.com/s?__biz=MzU2NjUwMzk3Mw==&mid=2247483776&idx=1&sn=a248165c9f313f96b491c2550cc1df47&chksm=fcaa3ecacbddb7dc4f0b47e3c939d3ed8fe4590ba782a3ca616d28038eefeb27feefe49aa0ac&token=37640579&lang=zh_CN#rd)可获取关于**PolarisHub**的微信推送
 
 1. **GO 版本**。我们将在*Golang*中重新构建**PolarisHub**，使其能够编译并安装在没有*Python*的每个平台上。
 2. **公共的服务器**。我们将构建一个公共服务器，以便每个人都可以在上面共享文件的链接（在局域网中）。
