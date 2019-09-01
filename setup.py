@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 REQUIRED = [
-    'Flask','MyQR==2.3.1'
+    'Flask', 'qrcode'
 ]
 
 
