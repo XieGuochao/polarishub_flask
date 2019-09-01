@@ -99,9 +99,10 @@ def create_app(test_config=None):
         file_path = os.path.join(os.getcwd(), 'temp', temppath)
         return send_file(file_path)
 
-    @app.route('/qr')
+    @app.route('/qr', methods = ['POST'])
     def qr():
-        file_path = request.values.get("filepath")
+        file_path = request.form["filepath"]
+        # file_path = request.form.get('filepath')
         printv(file_path, hash(file_path))
         file_name = str(hash(file_path)) + ".png"
         printv(file_name)
