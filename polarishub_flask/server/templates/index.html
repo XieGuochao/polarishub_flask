@@ -39,11 +39,14 @@
         </div>
     </div>
     <div>
-        <a href="/qr?filepath=/files" class="float-right">
-            <button button type="button" class="btn btn-outline-primary my-1 float-right">
+        <form action="/qr" method = "POST">
+        <!-- <a href="/qr?filepath=/files" class="float-right"> -->
+            <input type="text" style="display: none" id="filepath" name="filepath" value="/files">
+            <button type="submit" class="btn btn-outline-primary my-1 float-right">
                 <i class="fas fa-share-alt"></i> 
             </button>
-        </a>
+        <!-- </a> -->
+        </form>
     </div>
 
     {% if is_admin %}

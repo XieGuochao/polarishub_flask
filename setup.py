@@ -1,7 +1,7 @@
 import setuptools
 
-with open("README.md", "rb") as fh:
-    long_description = fh.read().decode('utf-8')
+with open("README.md", "r") as fh:
+    long_description = fh.read()
 
 REQUIRED = [
     'Flask', 'qrcode', 'Pillow'
@@ -10,7 +10,7 @@ REQUIRED = [
 
 setuptools.setup(
     name="polarishub_flask",
-    version="0.1.11",
+    version="0.1.13",
     author="Guochao Xie & Senyue Hao",
     author_email="guochaoxie@link.cuhk.edu.cn",
     description="PolarisHub Flask version",
