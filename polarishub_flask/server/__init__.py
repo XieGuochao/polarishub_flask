@@ -60,6 +60,8 @@ def create_app(test_config=None):
     def file(filename):
         printv("files/" + filename)
         local_path = os.path.join(os.getcwd(), 'files', filename)
+        if platform=="win32":
+            local_path = local_path.replace("/", "\\")
         printv (local_path)
         is_admin = network.checkIP(request.remote_addr)
 
