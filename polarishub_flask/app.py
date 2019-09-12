@@ -16,7 +16,8 @@ def start_app():
     app.run(host = "0.0.0.0", port = 5000, threaded = True)
 
 def main():
-    open_browser()
+    Process(target=lambda _:open_browser(), args=(None, )).start()
+    # open_browser()
     start_app()
 
 if __name__ == "__main__":
