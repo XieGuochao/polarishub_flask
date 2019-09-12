@@ -13,7 +13,7 @@ def open_browser():
     os.system("python -m webbrowser \"http://localhost:5000/\"")
 
 def start_app():
-    app.run(host="0.0.0.0", port=5000)
+    app.run(host = "0.0.0.0", port = 5000, threaded = True)
 
 def main():
     open_browser()
