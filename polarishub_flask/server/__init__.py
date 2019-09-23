@@ -58,6 +58,8 @@ def create_app(test_config=None):
     @app.route('/files/', defaults = {"filename":""})
     @app.route('/files/<path:filename>', methods=['GET', 'POST'])
     def file(filename):
+        if ".." in filename:
+            return abort(403)
         printv("files/" + filename)
         local_path = os.path.join(os.getcwd(), 'files', filename)
         if platform=="win32":
